@@ -13,8 +13,6 @@
 </script>
 
 <svelte:head>
-	<title>Unrizki</title>
-	<meta name="description" content="When life gives you lemons, return them" />
 	<meta name="keywords" content="unrizki, developer" />
 	<meta name="author" content="unrizki" />
 	<meta name="google-site-verification" content="C6PUpooLizJmY5GMc5givDPgKhx9wQo_RBfWuC0PFtc" />

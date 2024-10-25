@@ -5,7 +5,7 @@ lang: en-US
 description: I learned golang
 ---
 
-![gopher](./gopher.png)
+![gopher](/images/gopher.png)
 
 #### Apa itu Golang ?
 

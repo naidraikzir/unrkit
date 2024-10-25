@@ -17,7 +17,8 @@
 <style>
 	button {
 		align-items: center;
-		background: transparent;
+		background: rgba(var(--color-background-rgb), 0.5);
+		border-radius: 0.25em;
 		bottom: 2em;
 		color: var(--color-text-default);
 		display: flex;
@@ -26,13 +27,21 @@
 		justify-content: center;
 		margin: 0;
 		position: fixed;
-		right: 0.5em;
+		right: 0.75em;
 		transition: 0.3s;
 		width: 2em;
 
 		&.hidden {
 			opacity: 0;
 			visibility: hidden;
+		}
+
+		@media screen and (min-width: 64em) {
+			right: 1.25em;
+		}
+
+		@media screen and (min-width: 72em) {
+			right: 2em;
 		}
 	}
 </style>

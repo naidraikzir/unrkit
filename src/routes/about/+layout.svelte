@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import Head from '$lib/components/Head.svelte';
 
 	let { children }: { children: Snippet } = $props();
 	let loaded = $state(false);
@@ -10,6 +11,8 @@
 		}, 150);
 	});
 </script>
+
+<Head title="About" description="Me" />
 
 <div class="greet" class:loaded>
 	{@render children()}

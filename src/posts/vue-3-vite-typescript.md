@@ -5,7 +5,7 @@ lang: en-US
 description: This is the setup when I tried vue 3
 ---
 
-<img src="./vue-3-vite-typescript.svg" alt="vue 3 vite typescript" style="max-height: 400px">
+<img src="/images/vue-3-vite-typescript.svg" alt="vue 3 vite typescript" style="max-height: 400px">
 
 Vue 3 has been out for almost a year. It supports Typescript out of the box because actually it is written in Typescript. I never used Typescript before. But here is my minimal setup for starting a Vue 3 project using Typescript which I hope I can learn Typescript by using it in a Vue project.
 

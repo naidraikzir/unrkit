@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { format, getYear } from 'date-fns';
+	import Head from '$lib/components/Head.svelte';
 
 	let { data } = $props();
 	const { posts } = data;
@@ -18,6 +19,8 @@
 		);
 	}
 </script>
+
+<Head description="When life gives you lemons, return them" />
 
 {#each posts as post, index}
 	<div class="title" class:shown={loaded} style="transition-delay: {index * 0.15}s">
