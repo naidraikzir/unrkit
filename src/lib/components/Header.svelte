@@ -59,6 +59,7 @@
 		role="button"
 		tabindex="0"
 		class="theme-toggle"
+		aria-label="theme switcher"
 		onclick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 		onkeyup={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 	>
