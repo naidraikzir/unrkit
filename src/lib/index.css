@@ -1,0 +1,552 @@
+@import 'normalize.css';
+
+:root {
+	--color-background: #ffffff;
+	--color-background-dark: #151f28;
+	--color-text-default: #111;
+	--color-text-dark: #ffffff;
+    --font-serif: 'Crimson Pro', Georgia, Cambria, Times, 'Times New Roman', serif;
+    --font-sans: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Roboto Mono', 'Droid Mono', Inconsolata, Menlo,
+        Monaco, 'Courier New', Courier, monospace;
+}
+
+[data-theme='dark'] {
+	--color-background: #000;
+	--color-background-dark: #17151a;
+	--color-text-default: #ffffff;
+	--color-text-dark: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: #000;
+		--color-background-dark: #17151a;
+		--color-text-default: #ffffff;
+		--color-text-dark: #ffffff;
+	}
+
+	[data-theme='light'] {
+		--color-background: #ffffff;
+		--color-background-dark: #151f28;
+		--color-text-default: #111;
+		--color-text-dark: #ffffff;
+	}
+}
+
+
+/* Typography */
+
+html {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 400;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+
+	@media screen and (min-width: 40em) {
+		font-size: 18px;
+	}
+
+	@media screen and (min-width: 52em) {
+		font-size: 20px;
+	}
+
+	@media screen and (min-width: 64em) {
+		font-size: 22px;
+	}
+
+	@media screen and (min-width: 72em) {
+		font-size: 24px;
+	}
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-sans);
+	font-weight: 700;
+	line-height: 1;
+}
+
+h1,
+h2 {
+	letter-spacing: -1px;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+h5 {
+	font-size: 0.85em;
+}
+
+h6 {
+	font-size: 0.75em;
+}
+
+blockquote {
+    font-family: var(--font-serif);
+    font-size: 1.25em;
+	letter-spacing: normal;
+
+	&::before {
+		font-size: 1.5em;
+	}
+}
+
+figcaption {
+	font-style: italic;
+}
+
+label {
+	font-weight: 700;
+}
+
+textarea {
+	line-height: 1.5;
+}
+
+input,
+select,
+button,
+textarea {
+	font-family: var(--font-serif);
+}
+
+button {
+	font-size: 0.7em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+th {
+	text-transform: capitalize;
+}
+
+pre,
+code,
+pre[class*='language-'],
+code[class*='language-'] {
+	font-family: var(--font-mono);
+	letter-spacing: normal;
+}
+
+code,
+code[class*='language-'] {
+	font-size: 0.8em;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	background-color: var(--color-background);
+	color: var(--color-text-default);
+	overflow-x: hidden;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	overflow-x: hidden;
+}
+
+
+/* Blocks */
+
+section {
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+
+p {
+	margin-bottom: 2em;
+	margin-top: 2em;
+	max-width: 48em;
+
+	blockquote & {
+		display: inline;
+	}
+}
+
+blockquote {
+	margin: 2em 0;
+	padding-left: 1.5em;
+	position: relative;
+	transition: 0.2s ease;
+
+	&::before {
+		content: '❝';
+		left: -0.05em;
+		margin-right: 0.6em;
+		opacity: 0.5;
+		position: absolute;
+		top: -0.5em;
+	}
+}
+
+ol,
+ul {
+	margin-left: 0;
+	padding-left: 2em;
+}
+
+table,
+tbody,
+tr,
+td {
+	display: block;
+}
+
+table {
+	border-spacing: 0;
+	margin: 1.4em 0;
+	max-width: 100%;
+	width: 100%;
+
+	@media screen and (min-width: 52em) {
+		display: table;
+	}
+}
+
+thead {
+	display: none;
+
+	@media screen and (min-width: 52em) {
+		display: table-header-group;
+	}
+}
+
+tbody {
+	@media screen and (min-width: 52em) {
+		display: table-row-group;
+	}
+}
+
+tr {
+	padding: 0.6em 0;
+
+	@media screen and (min-width: 52em) {
+		display: table-row;
+	}
+}
+
+th {
+	article &:not([align='center']):not([align='right']) {
+		text-align: left;
+	}
+}
+
+td,
+th {
+	padding: 0.3em 0.6em;
+}
+
+td {
+	@media screen and (min-width: 52em) {
+		border-top: 1px solid var(--color-text-default);
+		display: table-cell;
+	}
+}
+
+pre {
+	background-color: var(--color-background-dark) !important;
+	box-shadow: 0 1.5em 1.5em -0.75em rgba(0, 0, 0, 0.25);
+	color: var(--color-text-dark);
+	overflow-x: auto;
+	max-width: 48em;
+	padding: 1em;
+	transition: 0.3s;
+
+	&:hover {
+		box-shadow: none;
+	}
+}
+
+form {
+	margin-bottom: 1em;
+}
+
+fieldset {
+	border: 0;
+	margin: 1em 0;
+	padding: 0;
+}
+
+figure {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+figcaption {
+	text-align: center;
+}
+
+hr {
+	margin: 2em auto;
+	opacity: 0.5;
+}
+
+
+/* Inlines */
+
+a {
+	border-bottom: 1px solid var(--color-text-default);
+	color: var(--color-text-default);
+	cursor: pointer;
+	outline: 0;
+	text-decoration: none;
+}
+
+q {
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+
+code {
+	background-color: var(--color-background-dark);
+	box-shadow: 0 0.5em 0.5em -0.25em rgba(0, 0, 0, 0.25);
+	color: var(--color-text-dark);
+	display: inline-block;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	transition: 0.3s;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	pre & {
+		box-shadow: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+label {
+	cursor: pointer;
+}
+
+input:not([type='checkbox']):not([type='radio']):not([type='range']),
+textarea,
+select,
+button {
+	appearance: none;
+	box-sizing: border-box;
+	outline: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+input:not([type='range']),
+textarea,
+select {
+	min-width: 100%;
+	max-width: 100%;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+	display: inline-block;
+	margin-right: 0.4em;
+	min-width: initial;
+	max-width: initial;
+	+ label {
+		display: inline-block;
+		font-weight: normal;
+	}
+}
+
+input[type='submit'],
+input[type='reset'],
+button {
+	cursor: pointer;
+}
+
+input[type='range'] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+
+	&:focus {
+		outline: none;
+	}
+
+	&::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 4px;
+		cursor: pointer;
+		background: var(--color-background);
+	}
+
+	&::-webkit-slider-thumb {
+		box-shadow: inset 0 0 0 3px var(--color-text-default);
+		border: 2px solid var(--color-background);
+		height: 16px;
+		width: 16px;
+		background: var(--color-background);
+		cursor: pointer;
+		-webkit-appearance: none;
+		margin-top: -6px;
+	}
+
+	&:focus::-webkit-slider-runnable-track {
+		background: var(--color-background);
+	}
+}
+
+input[type='range'] {
+	&::-moz-range-track {
+		width: 100%;
+		height: 4px;
+		cursor: pointer;
+		background: var(--color-background);
+	}
+
+	&::-moz-range-thumb {
+		border: 1px solid rgba(var(--color-text-default), 0);
+		height: 15px;
+		width: 15px;
+		background: var(--color-background);
+		cursor: pointer;
+	}
+}
+
+input[type='range'] {
+	&::-ms-track {
+		width: 100%;
+		height: 4px;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+
+	&::-ms-thumb {
+		border: 1px solid rgba(var(--color-text-default), 0);
+		height: 15px;
+		width: 15px;
+		background: var(--color-background);
+		cursor: pointer;
+		height: 4px;
+	}
+
+	&::-ms-fill-upper {
+		background: var(--color-background);
+	}
+
+	&::-ms-fill-lower {
+		background: var(--color-background);
+	}
+
+	&:focus::-ms-fill-lower,
+	&:focus::-ms-fill-upper {
+		background: var(--color-background);
+	}
+}
+
+textarea {
+	resize: none;
+	min-height: 8em;
+}
+
+select {
+	background-color: var(--color-background);
+	background-image: linear-gradient(45deg, transparent 50%, var(--color-text-default) 50%),
+		linear-gradient(135deg, var(--color-text-default) 50%, transparent 50%);
+	background-size: 5px 5px;
+	background-position:
+		calc(100% - 15px) 14px,
+		calc(100% - 10px) 14px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 var(--color-background);
+}
+
+button {
+	border: 0;
+	margin-bottom: 1em;
+	position: relative;
+	user-select: none;
+	transition: 0.2s;
+
+	& + & {
+		margin-left: 0.8em;
+	}
+}
+
+img {
+	max-width: 100%;
+	width: 100%;
+
+	p & {
+		display: block;
+		margin: auto;
+		width: initial;
+	}
+}
+
+svg {
+	vertical-align: middle;
+}
+
+mark {
+	background-color: var(--color-background);
+	color: var(--color-text-default);
+}
+
+::selection {
+	background-color: var(--color-text-default);
+	color: var(--color-background);
+}
+
+:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px var(--color-background) inset;
+	box-shadow: 0 0 0px 1000px var(--color-background) inset;
+}
+
+
+/* Vitepress */
+
+.header-anchor {
+	display: none;
+}
+
+
+/* Shiki */
+
+button.copy {
+	display: none;
+}
+
+span.lang {
+	color: var(--color-text-dark);
+	font-size: 0.65em;
+	opacity: 0.5;
+	position: absolute;
+	right: 0.5em;
+}
